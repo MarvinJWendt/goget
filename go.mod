@@ -1,4 +1,4 @@
-module github.com/pterm/cli-template
+module github.com/MarvinJWendt/goget
 
 go 1.16
 
