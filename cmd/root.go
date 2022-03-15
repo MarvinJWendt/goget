@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"github.com/AlecAivazis/survey/v2"
+	"github.com/MarvinJWendt/goget/internal"
 	"os"
 	"os/signal"
 
@@ -10,18 +12,48 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "goget",
+	Use:   "goget [packages]",
 	Short: "A simple go module downloader",
-	Long:  `Goget is a simple go module downloader.`,
+	Long:  `Goget is a simple go module downloader. If ran without arguments, it will prompt for a list of packages to get. If ran with arguments, it will get the specified packages.`,
 	Example: `goget
-goget pterm`,
+goget pterm
+goget testza
+goget pterm testza`,
 	Version: "v0.0.1", // <---VERSION---> Updating this version, will also create a new GitHub release.
-	// Uncomment the following lines if your bare application has an action associated with it:
-	// RunE: func(cmd *cobra.Command, args []string) error {
-	// 	// Your code here
-	//
-	// 	return nil
-	// },
+	Args:    cobra.ArbitraryArgs,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		if len(args) == 0 {
+			var pkgSelection string
+			err := survey.AskOne(internal.ModulesToDropdown(), &pkgSelection)
+			if err != nil {
+				return err
+			}
+			pterm.Debug.Println("You selected:", pkgSelection)
+
+			pkg := internal.GetModuleByName(pkgSelection)
+			pterm.Debug.Printfln("Module: %#v", pkg)
+
+			err = internal.InstallModule(pkg.Path)
+			if err != nil {
+				return err
+			}
+		} else {
+			for _, arg := range args {
+				pkg := internal.GetModuleByName(arg)
+
+				pterm.Debug.Printfln("Module: %#v", pkg)
+
+				err := internal.InstallModule(pkg.Path)
+				if err != nil {
+					return err
+				}
+			}
+		}
+
+		pterm.Success.Println("Done!")
+
+		return nil
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -49,7 +81,7 @@ func Execute() {
 func init() {
 	// Adds global flags for PTerm settings.
 	// Fill the empty strings with the shorthand variant (if you like to have one).
-	rootCmd.PersistentFlags().BoolVarP(&pterm.PrintDebugMessages, "debug", "", false, "enable debug messages")
+	rootCmd.PersistentFlags().BoolVarP(&pterm.PrintDebugMessages, "debug", "d", false, "enable debug messages")
 	rootCmd.PersistentFlags().BoolVarP(&pterm.RawOutput, "raw", "", false, "print unstyled raw output (set it if output is written to a file)")
 	rootCmd.PersistentFlags().BoolVarP(&pcli.DisableUpdateChecking, "disable-update-checks", "", false, "disables update checks")
 
