@@ -3,24 +3,26 @@
 ## Usage
 > A simple go module downloader
 
-goget
+goget [packages]
 
 ## Description
 
 ```
-Goget is a simple go module downloader.
+Goget is a simple go module downloader. If ran without arguments, it will prompt for a list of packages to get. If ran with arguments, it will get the specified packages.
 ```
 ## Examples
 
 ```bash
 goget
 goget pterm
+goget testza
+goget pterm testza
 ```
 
 ## Flags
 |Flag|Usage|
 |----|-----|
-|`--debug`|enable debug messages|
+|`-d, --debug`|enable debug messages|
 |`--disable-update-checks`|disables update checks|
 |`--raw`|print unstyled raw output (set it if output is written to a file)|
 
@@ -28,9 +30,8 @@ goget pterm
 |Command|Usage|
 |-------|-----|
 |`goget completion`|Generate the autocompletion script for the specified shell|
-|`goget date`|Prints the current date.|
 |`goget help`|Help about any command|
-# ... completion
+# ... mpletion
 `goget completion`
 
 ## Usage
@@ -53,7 +54,7 @@ See each sub-command's help for details on how to use the generated script.
 |`goget completion fish`|Generate the autocompletion script for fish|
 |`goget completion powershell`|Generate the autocompletion script for powershell|
 |`goget completion zsh`|Generate the autocompletion script for zsh|
-# ... completion bash
+# ... mpletion bash
 `goget completion bash`
 
 ## Usage
@@ -91,7 +92,7 @@ You will need to start a new shell for this setup to take effect.
 |Flag|Usage|
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
-# ... completion fish
+# ... mpletion fish
 `goget completion fish`
 
 ## Usage
@@ -120,7 +121,7 @@ You will need to start a new shell for this setup to take effect.
 |Flag|Usage|
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
-# ... completion powershell
+# ... mpletion powershell
 `goget completion powershell`
 
 ## Usage
@@ -146,7 +147,7 @@ to your powershell profile.
 |Flag|Usage|
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
-# ... completion zsh
+# ... mpletion zsh
 `goget completion zsh`
 
 ## Usage
@@ -182,18 +183,6 @@ You will need to start a new shell for this setup to take effect.
 |Flag|Usage|
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
-# ... date
-`goget date`
-
-## Usage
-> Prints the current date.
-
-goget date
-
-## Flags
-|Flag|Usage|
-|----|-----|
-|`-f, --format string`|specify a custom date format (default "02 Jan 06")|
 # ... help
 `goget help`
 
