@@ -19,7 +19,7 @@ var rootCmd = &cobra.Command{
 goget pterm
 goget testza
 goget pterm testza`,
-	Version: "v0.0.1", // <---VERSION---> Updating this version, will also create a new GitHub release.
+	Version: "v0.1.0", // <---VERSION---> Updating this version, will also create a new GitHub release.
 	Args:    cobra.ArbitraryArgs,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 {
