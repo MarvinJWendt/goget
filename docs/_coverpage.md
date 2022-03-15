@@ -1,9 +1,8 @@
-# cli-template
+# goget
 
-> This cli template shows the date and time in the terminal
+> A simple go module downloader
 
-This is a template CLI application, which can be used as a boilerplate for awesome CLI tools written in Go.
-This template prints the date or time to the terminal.
+Goget is a simple go module downloader.
 
 [Installation](installation.md)
 [Docs](docs.md)

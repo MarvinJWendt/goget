@@ -1,23 +1,20 @@
-# cli-template
+# goget
 
 ## Usage
-> This cli template shows the date and time in the terminal
+> A simple go module downloader
 
-cli-template
+goget
 
 ## Description
 
 ```
-This is a template CLI application, which can be used as a boilerplate for awesome CLI tools written in Go.
-This template prints the date or time to the terminal.
+Goget is a simple go module downloader.
 ```
 ## Examples
 
 ```bash
-cli-template date
-cli-template date --format 20060102
-cli-template time
-cli-template time --live
+goget
+goget pterm
 ```
 
 ## Flags
@@ -30,22 +27,21 @@ cli-template time --live
 ## Commands
 |Command|Usage|
 |-------|-----|
-|`cli-template completion`|Generate the autocompletion script for the specified shell|
-|`cli-template date`|Prints the current date.|
-|`cli-template help`|Help about any command|
-|`cli-template time`|Prints the current time|
+|`goget completion`|Generate the autocompletion script for the specified shell|
+|`goget date`|Prints the current date.|
+|`goget help`|Help about any command|
 # ... completion
-`cli-template completion`
+`goget completion`
 
 ## Usage
 > Generate the autocompletion script for the specified shell
 
-cli-template completion
+goget completion
 
 ## Description
 
 ```
-Generate the autocompletion script for cli-template for the specified shell.
+Generate the autocompletion script for goget for the specified shell.
 See each sub-command's help for details on how to use the generated script.
 
 ```
@@ -53,17 +49,17 @@ See each sub-command's help for details on how to use the generated script.
 ## Commands
 |Command|Usage|
 |-------|-----|
-|`cli-template completion bash`|Generate the autocompletion script for bash|
-|`cli-template completion fish`|Generate the autocompletion script for fish|
-|`cli-template completion powershell`|Generate the autocompletion script for powershell|
-|`cli-template completion zsh`|Generate the autocompletion script for zsh|
+|`goget completion bash`|Generate the autocompletion script for bash|
+|`goget completion fish`|Generate the autocompletion script for fish|
+|`goget completion powershell`|Generate the autocompletion script for powershell|
+|`goget completion zsh`|Generate the autocompletion script for zsh|
 # ... completion bash
-`cli-template completion bash`
+`goget completion bash`
 
 ## Usage
 > Generate the autocompletion script for bash
 
-cli-template completion bash
+goget completion bash
 
 ## Description
 
@@ -75,17 +71,17 @@ If it is not installed already, you can install it via your OS's package manager
 
 To load completions in your current shell session:
 
-	source <(cli-template completion bash)
+	source <(goget completion bash)
 
 To load completions for every new session, execute once:
 
 #### Linux:
 
-	cli-template completion bash > /etc/bash_completion.d/cli-template
+	goget completion bash > /etc/bash_completion.d/goget
 
 #### macOS:
 
-	cli-template completion bash > /usr/local/etc/bash_completion.d/cli-template
+	goget completion bash > /usr/local/etc/bash_completion.d/goget
 
 You will need to start a new shell for this setup to take effect.
 
@@ -96,12 +92,12 @@ You will need to start a new shell for this setup to take effect.
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
 # ... completion fish
-`cli-template completion fish`
+`goget completion fish`
 
 ## Usage
 > Generate the autocompletion script for fish
 
-cli-template completion fish
+goget completion fish
 
 ## Description
 
@@ -110,11 +106,11 @@ Generate the autocompletion script for the fish shell.
 
 To load completions in your current shell session:
 
-	cli-template completion fish | source
+	goget completion fish | source
 
 To load completions for every new session, execute once:
 
-	cli-template completion fish > ~/.config/fish/completions/cli-template.fish
+	goget completion fish > ~/.config/fish/completions/goget.fish
 
 You will need to start a new shell for this setup to take effect.
 
@@ -125,12 +121,12 @@ You will need to start a new shell for this setup to take effect.
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
 # ... completion powershell
-`cli-template completion powershell`
+`goget completion powershell`
 
 ## Usage
 > Generate the autocompletion script for powershell
 
-cli-template completion powershell
+goget completion powershell
 
 ## Description
 
@@ -139,7 +135,7 @@ Generate the autocompletion script for powershell.
 
 To load completions in your current shell session:
 
-	cli-template completion powershell | Out-String | Invoke-Expression
+	goget completion powershell | Out-String | Invoke-Expression
 
 To load completions for every new session, add the output of the above command
 to your powershell profile.
@@ -151,12 +147,12 @@ to your powershell profile.
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
 # ... completion zsh
-`cli-template completion zsh`
+`goget completion zsh`
 
 ## Usage
 > Generate the autocompletion script for zsh
 
-cli-template completion zsh
+goget completion zsh
 
 ## Description
 
@@ -172,11 +168,11 @@ To load completions for every new session, execute once:
 
 #### Linux:
 
-	cli-template completion zsh > "${fpath[1]}/_cli-template"
+	goget completion zsh > "${fpath[1]}/_goget"
 
 #### macOS:
 
-	cli-template completion zsh > /usr/local/share/zsh/site-functions/_cli-template
+	goget completion zsh > /usr/local/share/zsh/site-functions/_goget
 
 You will need to start a new shell for this setup to take effect.
 
@@ -187,49 +183,31 @@ You will need to start a new shell for this setup to take effect.
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
 # ... date
-`cli-template date`
+`goget date`
 
 ## Usage
 > Prints the current date.
 
-cli-template date
+goget date
 
 ## Flags
 |Flag|Usage|
 |----|-----|
 |`-f, --format string`|specify a custom date format (default "02 Jan 06")|
 # ... help
-`cli-template help`
+`goget help`
 
 ## Usage
 > Help about any command
 
-cli-template help [command]
+goget help [command]
 
 ## Description
 
 ```
 Help provides help for any command in the application.
-Simply type cli-template help [path to command] for full details.
+Simply type goget help [path to command] for full details.
 ```
-# ... time
-`cli-template time`
-
-## Usage
-> Prints the current time
-
-cli-template time
-
-## Description
-
-```
-You can print a live clock with the '--live' flag!
-```
-
-## Flags
-|Flag|Usage|
-|----|-----|
-|`-l, --live`|live output|
 
 
 ---
