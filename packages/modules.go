@@ -17,6 +17,9 @@ var Modules = []Module{
 	{"zap", "go.uber.org/zap", Tags{LOGGING}},
 	{"zerolog", "github.com/rs/zerolog/log", Tags{LOGGING}},
 	{"cobra", "github.com/spf13/cobra", Tags{CLI}},
+	{"testify", "github.com/stretchr/testify", Tags{TEST_FRAMEWORK}},
+	{"fyne", "github.com/fyne-io/fyne", Tags{GUI}},
+	{"webview", "github.com/webview/webview", Tags{GUI}},
 }
 
 type Tag string
@@ -28,4 +31,5 @@ const (
 	TEST_FRAMEWORK Tag = "Test Framework"
 	ORM            Tag = "ORM"
 	LOGGING        Tag = "Logging"
+	GUI            Tag = "GUI"
 )
