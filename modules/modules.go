@@ -35,6 +35,7 @@ var Modules = []Module{
 	{"fiber", "github.com/gofiber/fiber/v2", Tags{WEB_FRAMEWORK}},
 	{"gin", "github.com/gin-gonic/gin", Tags{WEB_FRAMEWORK}},
 	{"lo", "github.com/samber/lo", Tags{UTILS}},
+	{"colly", "github.com/gocolly/colly/v2", Tags{WEB_SCRAPER}},
 }
 
 type Tag string
@@ -42,6 +43,7 @@ type Tags []Tag
 
 const (
 	WEB_FRAMEWORK  Tag = "Web Framework"
+	WEB_SCRAPER    Tag = "Web Scraper"
 	CLI            Tag = "CLI"
 	TEST_FRAMEWORK Tag = "Test Framework"
 	ORM            Tag = "ORM"
