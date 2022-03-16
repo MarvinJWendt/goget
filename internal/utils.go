@@ -3,7 +3,7 @@ package internal
 import (
 	"fmt"
 	"github.com/AlecAivazis/survey/v2"
-	"github.com/MarvinJWendt/goget/packages"
+	"github.com/MarvinJWendt/goget/modules"
 	"github.com/pterm/pterm"
 	"os/exec"
 	"strings"
@@ -13,7 +13,7 @@ func ModulesToDropdown() (entries *survey.Select) {
 	entries = &survey.Select{
 		Message: "Select a package to install:",
 	}
-	for _, pkg := range packages.Modules {
+	for _, pkg := range modules.Modules {
 		var categories string
 		for i, category := range pkg.Categories {
 			if i == 0 {
@@ -40,9 +40,9 @@ func FilterVersionsToMajor(versions []string) (filtered []string) {
 	return
 }
 
-func GetModuleByName(pkgName string) (pkg packages.Module) {
+func GetModuleByName(pkgName string) (pkg modules.Module) {
 	pkgName = strings.Split(pkgName, " ")[0]
-	for _, pkg := range packages.Modules {
+	for _, pkg := range modules.Modules {
 		if pkg.Name == pkgName {
 			return pkg
 		}
