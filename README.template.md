@@ -48,12 +48,14 @@
 </p>
 
 ----
-
+<p align="center">
 {{ .Long }}
+</p>
 
-![Screenshot](https://user-images.githubusercontent.com/31022056/158558899-8c6be62d-6410-4c9c-98e3-28f6f932cfc1.png)
-![Screenshot](https://user-images.githubusercontent.com/31022056/158559270-0e4ac976-e130-40f2-b45f-cba79d4468ee.png)
-
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/31022056/158558899-8c6be62d-6410-4c9c-98e3-28f6f932cfc1.png" alt="Screenshot" width="600"/>
+    <img src="https://user-images.githubusercontent.com/31022056/158559270-0e4ac976-e130-40f2-b45f-cba79d4468ee.png" alt="Screenshot" width="600"/>
+</p>
 
 ## Installation
 
