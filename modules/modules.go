@@ -39,6 +39,9 @@ var Modules = []Module{
 	{"excelize", "github.com/qax-os/excelize/v2", Tags{DOCUMENT_PARSER}},
 	{"gjson", "github.com/tidwall/gjson", Tags{PARSER}},
 	{"urfave/cli", "github.com/urfave/cli/v2", Tags{CLI}},
+	{"gorilla/mux", "github.com/gorilla/mux", Tags{WEB_FRAMEWORK}},
+	{"gorilla/websocket", "github.com/gorilla/websocket", Tags{WEBSOCKET}},
+	{"ebiten", "github.com/hajimehoshi/ebiten/v2", Tags{GAME_ENGINE}},
 }
 
 type Tag string
@@ -55,6 +58,8 @@ const (
 	UTILS           Tag = "Utils"
 	DOCUMENT_PARSER Tag = "Document Parser"
 	PARSER          Tag = "Parser"
+	WEBSOCKET       Tag = "Websocket"
+  GAME_ENGINE     Tag = "Game engine"
 )
 
 func (t Tags) String() string {
