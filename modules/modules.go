@@ -1,9 +1,9 @@
 package modules
 
 type Module struct {
-	Name string
-	Path string
-	Tags []Tag
+	Name string `json:"name"`
+	Path string `json:"path"`
+	Tags []Tag  `json:"tags"`
 }
 
 var Modules = []Module{
