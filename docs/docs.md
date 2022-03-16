@@ -32,6 +32,7 @@ goget pterm testza
 |Command|Usage|
 |-------|-----|
 |`goget completion`|Generate the autocompletion script for the specified shell|
+|`goget export`|Prints all inbuild modules as json|
 |`goget help`|Help about any command|
 # ... completion
 `goget completion`
@@ -185,6 +186,13 @@ You will need to start a new shell for this setup to take effect.
 |Flag|Usage|
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
+# ... export
+`goget export`
+
+## Usage
+> Prints all inbuild modules as json
+
+goget export
 # ... help
 `goget help`
 
