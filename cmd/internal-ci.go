@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"fmt"
 	"github.com/MarvinJWendt/goget/modules"
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
@@ -22,9 +23,15 @@ var internalCICmd = &cobra.Command{
 		text := `
 # Registered Modules
 
+> Goget currently has **%d** modules registered.  
+> To add modules into the goget registry, make a PR on GitHub!  
+> https://github.com/MarvinJWendt/goget/blob/main/modules/modules.go  
+
 |Name|URL|Tags|
 |---|---|---|
 `
+
+		text = fmt.Sprintf(text, len(modules.Modules))
 
 		for _, m := range modules.Modules {
 			text += pterm.Sprintfln("|%s|https://%s|%s|", m.Name, m.Path, m.Tags)
