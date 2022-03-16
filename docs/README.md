@@ -55,6 +55,15 @@ Goget is a simple go module downloader. If ran without arguments, it will prompt
 
 Run the following command in a terminal and you're ready to go!
 
+
+### Install using Go
+
+```bash
+go install github.com/MarvinJWendt/goget@latest
+```
+
+### Install using instl
+
 **Windows**
 ```powershell
 iwr instl.sh/MarvinJWendt/goget/windows | iex
