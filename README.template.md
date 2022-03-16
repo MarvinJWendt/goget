@@ -55,6 +55,15 @@
 
 Run the following command in a terminal and you're ready to go!
 
+
+### Install using Go
+
+```bash
+go install github.com/{{ .ProjectPath }}@latest
+```
+
+### Install using instl
+
 **Windows**
 ```powershell
 {{ .InstallCommandWindows }}
