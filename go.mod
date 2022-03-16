@@ -4,13 +4,13 @@ go 1.18
 
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.2
+	github.com/MarvinJWendt/testza v0.2.15
 	github.com/pterm/pcli v0.4.6
 	github.com/pterm/pterm v0.12.38
 	github.com/spf13/cobra v1.4.0
 )
 
 require (
-	github.com/MarvinJWendt/testza v0.2.15 // indirect
 	github.com/atomicgo/cursor v0.0.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/gookit/color v1.5.0 // indirect
