@@ -20,6 +20,7 @@ jobs:
           go mod tidy
           go run . ptermCI
           go run . export > ./generated/modules.json
+          go run . internal-ci
       - name: Push changes
         run: |
           git config --global user.name 'PTermCI' || exit 0

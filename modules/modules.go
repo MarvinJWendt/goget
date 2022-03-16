@@ -1,9 +1,21 @@
 package modules
 
+import (
+	"sort"
+	"strings"
+)
+
+func init() {
+	// Sort the modules by the first tag.
+	sort.Slice(Modules, func(i, j int) bool {
+		return Modules[i].Tags[0] < Modules[j].Tags[0]
+	})
+}
+
 type Module struct {
 	Name string `json:"name"`
 	Path string `json:"path"`
-	Tags []Tag  `json:"tags"`
+	Tags Tags   `json:"tags"`
 }
 
 var Modules = []Module{
@@ -37,3 +49,12 @@ const (
 	GUI            Tag = "GUI"
 	UTILS          Tag = "Utils"
 )
+
+func (t Tags) String() string {
+	var tags []string
+	for _, tag := range t {
+		tags = append(tags, string(tag))
+	}
+
+	return strings.Join(tags, ", ")
+}
