@@ -102,7 +102,7 @@ curl -sSL instl.sh/MarvinJWendt/goget/linux | bash
 |excelize|https://github.com/qax-os/excelize/v2|Document Parser|
 |fyne|https://github.com/fyne-io/fyne/v2|GUI|
 |webview|https://github.com/webview/webview|GUI|
-|ebiten|https://github.com/hajimehoshi/ebiten/v2|Game engine|
+|ebiten|https://github.com/hajimehoshi/ebiten/v2|Game Engine|
 |zap|https://go.uber.org/zap|Logging|
 |zerolog|https://github.com/rs/zerolog/log|Logging|
 |logrus|https://github.com/sirupsen/logrus|Logging|
