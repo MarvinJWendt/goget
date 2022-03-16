@@ -31,7 +31,7 @@ goget pterm testza
 |-------|-----|
 |`goget completion`|Generate the autocompletion script for the specified shell|
 |`goget help`|Help about any command|
-# ... mpletion
+# ... completion
 `goget completion`
 
 ## Usage
@@ -54,7 +54,7 @@ See each sub-command's help for details on how to use the generated script.
 |`goget completion fish`|Generate the autocompletion script for fish|
 |`goget completion powershell`|Generate the autocompletion script for powershell|
 |`goget completion zsh`|Generate the autocompletion script for zsh|
-# ... mpletion bash
+# ... completion bash
 `goget completion bash`
 
 ## Usage
@@ -92,7 +92,7 @@ You will need to start a new shell for this setup to take effect.
 |Flag|Usage|
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
-# ... mpletion fish
+# ... completion fish
 `goget completion fish`
 
 ## Usage
@@ -121,7 +121,7 @@ You will need to start a new shell for this setup to take effect.
 |Flag|Usage|
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
-# ... mpletion powershell
+# ... completion powershell
 `goget completion powershell`
 
 ## Usage
@@ -147,7 +147,7 @@ to your powershell profile.
 |Flag|Usage|
 |----|-----|
 |`--no-descriptions`|disable completion descriptions|
-# ... mpletion zsh
+# ... completion zsh
 `goget completion zsh`
 
 ## Usage
