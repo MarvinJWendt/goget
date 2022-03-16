@@ -59,7 +59,7 @@ const (
 	DOCUMENT_PARSER Tag = "Document Parser"
 	PARSER          Tag = "Parser"
 	WEBSOCKET       Tag = "Websocket"
-  GAME_ENGINE     Tag = "Game engine"
+	GAME_ENGINE     Tag = "Game Engine"
 )
 
 func (t Tags) String() string {
