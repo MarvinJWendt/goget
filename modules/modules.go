@@ -36,20 +36,22 @@ var Modules = []Module{
 	{"gin", "github.com/gin-gonic/gin", Tags{WEB_FRAMEWORK}},
 	{"lo", "github.com/samber/lo", Tags{UTILS}},
 	{"colly", "github.com/gocolly/colly/v2", Tags{WEB_SCRAPER}},
+	{"excelize", "github.com/qax-os/excelize/v2", Tags{DOCUMENT_PARSER}},
 }
 
 type Tag string
 type Tags []Tag
 
 const (
-	WEB_FRAMEWORK  Tag = "Web Framework"
-	WEB_SCRAPER    Tag = "Web Scraper"
-	CLI            Tag = "CLI"
-	TEST_FRAMEWORK Tag = "Test Framework"
-	ORM            Tag = "ORM"
-	LOGGING        Tag = "Logging"
-	GUI            Tag = "GUI"
-	UTILS          Tag = "Utils"
+	WEB_FRAMEWORK   Tag = "Web Framework"
+	WEB_SCRAPER     Tag = "Web Scraper"
+	CLI             Tag = "CLI"
+	TEST_FRAMEWORK  Tag = "Test Framework"
+	ORM             Tag = "ORM"
+	LOGGING         Tag = "Logging"
+	GUI             Tag = "GUI"
+	UTILS           Tag = "Utils"
+	DOCUMENT_PARSER Tag = "Document Parser"
 )
 
 func (t Tags) String() string {
