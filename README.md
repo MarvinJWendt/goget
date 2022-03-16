@@ -89,7 +89,7 @@ curl -sSL instl.sh/MarvinJWendt/goget/linux | bash
 
 # Registered Modules
 
-> Goget currently has **20** modules registered.  
+> Goget currently has **23** modules registered.  
 > To add modules into the goget registry, make a PR on GitHub!  
 > https://github.com/MarvinJWendt/goget/blob/main/modules/modules.go  
 
@@ -100,18 +100,21 @@ curl -sSL instl.sh/MarvinJWendt/goget/linux | bash
 |survey|https://github.com/AlecAivazis/survey/v2|CLI|
 |urfave/cli|https://github.com/urfave/cli/v2|CLI|
 |excelize|https://github.com/qax-os/excelize/v2|Document Parser|
-|webview|https://github.com/webview/webview|GUI|
 |fyne|https://github.com/fyne-io/fyne/v2|GUI|
-|logrus|https://github.com/sirupsen/logrus|Logging|
-|zerolog|https://github.com/rs/zerolog/log|Logging|
+|webview|https://github.com/webview/webview|GUI|
+|ebiten|https://github.com/hajimehoshi/ebiten/v2|Game engine|
 |zap|https://go.uber.org/zap|Logging|
+|zerolog|https://github.com/rs/zerolog/log|Logging|
+|logrus|https://github.com/sirupsen/logrus|Logging|
 |gorm|https://github.com/go-gorm/gorm|ORM|
 |gjson|https://github.com/tidwall/gjson|Parser|
 |testify|https://github.com/stretchr/testify|Test Framework|
 |testza|https://github.com/MarvinJWendt/testza|Test Framework|
 |lo|https://github.com/samber/lo|Utils|
+|beego|https://github.com/beego/beego/v2|Web Framework|
 |gin|https://github.com/gin-gonic/gin|Web Framework|
 |fiber|https://github.com/gofiber/fiber/v2|Web Framework|
-|beego|https://github.com/beego/beego/v2|Web Framework|
 |fasthttp|https://github.com/valyala/fasthttp|Web Framework|
+|gorilla/mux|https://github.com/gorilla/mux|Web Framework|
 |colly|https://github.com/gocolly/colly/v2|Web Scraper|
+|gorilla/websocket|https://github.com/gorilla/websocket|Websocket|
