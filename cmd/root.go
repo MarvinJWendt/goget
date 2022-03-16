@@ -3,6 +3,7 @@ package cmd
 import (
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/MarvinJWendt/goget/internal"
+	"github.com/MarvinJWendt/goget/modules"
 	"os"
 	"os/signal"
 
@@ -21,9 +22,11 @@ If you want to add a missing module, you can do so by creating a PR on the goget
 goget pterm
 goget testza
 goget pterm testza`,
-	Version: "v1.0.0", // <---VERSION---> Updating this version, will also create a new GitHub release.
+	Version: "v1.1.0", // <---VERSION---> Updating this version, will also create a new GitHub release.
 	Args:    cobra.ArbitraryArgs,
 	RunE: func(cmd *cobra.Command, args []string) error {
+		modules.FetchNewModules()
+
 		if len(args) == 0 {
 			var pkgSelection string
 			err := survey.AskOne(internal.ModulesToDropdown(), &pkgSelection)
