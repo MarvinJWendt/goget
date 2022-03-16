@@ -86,3 +86,24 @@ curl -sSL instl.sh/MarvinJWendt/goget/macos | bash
 ```bash
 curl -sSL instl.sh/MarvinJWendt/goget/linux | bash
 ```
+
+# Registered Modules
+
+|Name|URL|Tags|
+|---|---|---|
+|cobra|https://github.com/spf13/cobra|CLI|
+|pterm|https://github.com/pterm/pterm|CLI|
+|survey|https://github.com/AlecAivazis/survey/v2|CLI|
+|fyne|https://github.com/fyne-io/fyne/v2|GUI|
+|webview|https://github.com/webview/webview|GUI|
+|logrus|https://github.com/sirupsen/logrus|Logging|
+|zap|https://go.uber.org/zap|Logging|
+|zerolog|https://github.com/rs/zerolog/log|Logging|
+|gorm|https://github.com/go-gorm/gorm|ORM|
+|testify|https://github.com/stretchr/testify|Test Framework|
+|testza|https://github.com/MarvinJWendt/testza|Test Framework|
+|lo|https://github.com/samber/lo|Utils|
+|beego|https://github.com/beego/beego/v2|Web Framework|
+|fasthttp|https://github.com/valyala/fasthttp|Web Framework|
+|fiber|https://github.com/gofiber/fiber/v2|Web Framework|
+|gin|https://github.com/gin-gonic/gin|Web Framework|
