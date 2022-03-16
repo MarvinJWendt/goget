@@ -15,7 +15,7 @@ func ModulesToDropdown() (entries *survey.Select) {
 	}
 	for _, pkg := range modules.Modules {
 		var categories string
-		for i, category := range pkg.Categories {
+		for i, category := range pkg.Tags {
 			if i == 0 {
 				categories = string(category)
 			} else {
