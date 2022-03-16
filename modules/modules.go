@@ -37,6 +37,7 @@ var Modules = []Module{
 	{"lo", "github.com/samber/lo", Tags{UTILS}},
 	{"colly", "github.com/gocolly/colly/v2", Tags{WEB_SCRAPER}},
 	{"excelize", "github.com/qax-os/excelize/v2", Tags{DOCUMENT_PARSER}},
+	{"gjson", "github.com/tidwall/gjson", Tags{PARSER}},
 }
 
 type Tag string
@@ -52,6 +53,7 @@ const (
 	GUI             Tag = "GUI"
 	UTILS           Tag = "Utils"
 	DOCUMENT_PARSER Tag = "Document Parser"
+	PARSER          Tag = "Parser"
 )
 
 func (t Tags) String() string {
