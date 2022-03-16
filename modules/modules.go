@@ -22,6 +22,7 @@ var Modules = []Module{
 	{"fasthttp", "github.com/valyala/fasthttp", Tags{WEB_FRAMEWORK}},
 	{"fiber", "github.com/gofiber/fiber/v2", Tags{WEB_FRAMEWORK}},
 	{"gin", "github.com/gin-gonic/gin", Tags{WEB_FRAMEWORK}},
+	{"lo", "github.com/samber/lo", Tags{UTILS}},
 }
 
 type Tag string
@@ -34,4 +35,5 @@ const (
 	ORM            Tag = "ORM"
 	LOGGING        Tag = "Logging"
 	GUI            Tag = "GUI"
+	UTILS          Tag = "Utils"
 )
