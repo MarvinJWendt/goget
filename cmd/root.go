@@ -70,17 +70,13 @@ func Execute() {
 	go func() {
 		<-c
 		pterm.Warning.Println("user interrupt")
-		pcli.CheckForUpdates()
 		os.Exit(0)
 	}()
 
 	// Execute cobra
 	if err := rootCmd.Execute(); err != nil {
-		pcli.CheckForUpdates()
 		os.Exit(1)
 	}
-
-	pcli.CheckForUpdates()
 }
 
 func init() {
@@ -88,7 +84,6 @@ func init() {
 	// Fill the empty strings with the shorthand variant (if you like to have one).
 	rootCmd.PersistentFlags().BoolVarP(&pterm.PrintDebugMessages, "debug", "d", false, "enable debug messages")
 	rootCmd.PersistentFlags().BoolVarP(&pterm.RawOutput, "raw", "", false, "print unstyled raw output (set it if output is written to a file)")
-	rootCmd.PersistentFlags().BoolVarP(&pcli.DisableUpdateChecking, "disable-update-checks", "", false, "disables update checks")
 
 	// Use https://github.com/pterm/pcli to style the output of cobra.
 	pcli.SetRepo("MarvinJWendt/goget")
