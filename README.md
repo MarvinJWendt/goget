@@ -89,7 +89,7 @@ curl -sSL instl.sh/MarvinJWendt/goget/linux | bash
 
 # Registered Modules
 
-> Goget currently has **16** modules registered.  
+> Goget currently has **17** modules registered.  
 > To add modules into the goget registry, make a PR on GitHub!  
 > https://github.com/MarvinJWendt/goget/blob/main/modules/modules.go  
 
@@ -111,3 +111,4 @@ curl -sSL instl.sh/MarvinJWendt/goget/linux | bash
 |fasthttp|https://github.com/valyala/fasthttp|Web Framework|
 |fiber|https://github.com/gofiber/fiber/v2|Web Framework|
 |gin|https://github.com/gin-gonic/gin|Web Framework|
+|colly|https://github.com/gocolly/colly/v2|Web Scraper|
