@@ -38,6 +38,7 @@ var Modules = []Module{
 	{"colly", "github.com/gocolly/colly/v2", Tags{WEB_SCRAPER}},
 	{"excelize", "github.com/qax-os/excelize/v2", Tags{DOCUMENT_PARSER}},
 	{"gjson", "github.com/tidwall/gjson", Tags{PARSER}},
+	{"urfave/cli", "github.com/urfave/cli/v2", Tags{CLI}},
 }
 
 type Tag string
