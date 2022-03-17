@@ -209,4 +209,4 @@ Simply type goget help [path to command] for full details.
 
 
 ---
-> **Documentation automatically generated with [PTerm](https://github.com/pterm/cli-template) on 16 March 2022**
+> **Documentation automatically generated with [PTerm](https://github.com/pterm/cli-template) on 17 March 2022**
