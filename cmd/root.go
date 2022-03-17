@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"errors"
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/MarvinJWendt/goget/internal"
 	"github.com/MarvinJWendt/goget/modules"
@@ -38,7 +39,7 @@ goget pterm testza`,
 			}
 			pterm.Debug.Println("You selected:", pkgSelection)
 
-			pkg := internal.GetModuleByName(pkgSelection)
+			pkg, _ := internal.GetModuleByName(pkgSelection)
 			pterm.Debug.Printfln("Module: %#v", pkg)
 
 			err = internal.InstallModule(pkg.Path)
@@ -50,16 +51,27 @@ goget pterm testza`,
 				if remote != "none" {
 					err := remotes.Run(remote, arg)
 					if err != nil {
-						return err
+						if errors.Is(err, internal.UNKNOWN_PACKAGE) {
+							pterm.Warning.Printfln("Unable to find package \"%s\" on %s", arg, remote)
+						} else {
+							return err
+						}
 					}
 				} else {
-					pkg := internal.GetModuleByName(arg)
-
-					pterm.Debug.Printfln("Module: %#v", pkg)
-
-					err := internal.InstallModule(pkg.Path)
+					pkg, err := internal.GetModuleByName(arg)
 					if err != nil {
-						return err
+						if errors.Is(err, internal.UNKNOWN_PACKAGE) {
+							pterm.Warning.Printfln("Unable to find package \"%s\", try -r", arg)
+						} else {
+							return err
+						}
+					} else {
+						pterm.Debug.Printfln("Module: %#v", pkg)
+
+						err = internal.InstallModule(pkg.Path)
+						if err != nil {
+							return err
+						}
 					}
 				}
 			}

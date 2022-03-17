@@ -3,6 +3,8 @@ package remotes
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/MarvinJWendt/goget/internal"
+	"github.com/pterm/pterm"
 	"io/ioutil"
 	"net/http"
 	"strconv"
@@ -41,6 +43,9 @@ func getRemote(arg string) (*[]Repo, error) {
 	if err != nil {
 		return nil, fmt.Errorf("error unmarshalling response  %w", err)
 	}
+	if respDecoded.TotalCount == 0 {
+		return nil, internal.UNKNOWN_PACKAGE
+	}
 	return &respDecoded.Items, err
 }
 
@@ -65,6 +70,7 @@ func getVersion(repoName string) (string, error) {
 			if err != nil {
 				continue
 			}
+			pterm.Debug.Printfln("Found tag with version number: %s", tag)
 			if i > 1 {
 				return tag.Name[0:2], err
 			}
@@ -72,5 +78,6 @@ func getVersion(repoName string) (string, error) {
 			continue
 		}
 	}
+	pterm.Debug.Println("No tag with version number")
 	return "", nil
 }

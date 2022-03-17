@@ -20,14 +20,15 @@ func Run(remote string, arg string) error {
 			return fmt.Errorf("error selecting package  %w", err)
 		}
 		pkgPath := strings.Split(strings.Split(pkgSelection, " ")[2], ":")[1][2:]
-		version, err := getVersion(strings.Split(pkgSelection, " ")[0])
+		pkgName := strings.Split(pkgSelection, " ")[0]
+		version, err := getVersion(pkgName)
 		if err != nil {
 			return err
 		}
 		if version != "" {
 			pkgPath += "/" + version
 		}
-		pterm.Debug.Println(pkgPath)
+		pterm.Debug.Printfln("Module: name: %s, path %s", pkgName, pkgPath)
 		err = internal.InstallModule(pkgPath)
 		return err
 	} else {
@@ -47,5 +48,6 @@ func dropdown(repos *[]Repo) (string, error) {
 	if err != nil {
 		return "", err
 	}
+	pterm.Debug.Println("You selected:", pkgSelection)
 	return pkgSelection, err
 }

@@ -40,14 +40,14 @@ func FilterVersionsToMajor(versions []string) (filtered []string) {
 	return
 }
 
-func GetModuleByName(pkgName string) (pkg modules.Module) {
+func GetModuleByName(pkgName string) (pkg modules.Module, err error) {
 	pkgName = strings.Split(pkgName, " ")[0]
 	for _, pkg := range modules.Modules {
 		if pkg.Name == pkgName {
-			return pkg
+			return pkg, nil
 		}
 	}
-	return
+	return modules.Module{}, UNKNOWN_PACKAGE
 }
 
 func ExecGoGet(pkgPath string) (output string, err error) {
