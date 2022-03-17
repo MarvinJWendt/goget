@@ -2,6 +2,7 @@ package remotes
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"github.com/MarvinJWendt/goget/internal"
 	"github.com/pterm/pterm"
@@ -33,6 +34,9 @@ func getRemote(arg string) (*[]Repo, error) {
 	if err != nil {
 		return nil, fmt.Errorf("error getting response  %w", err)
 	}
+	if resp.StatusCode != http.StatusOK {
+		return nil, errors.New("github did not respond with 200")
+	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
@@ -53,6 +57,12 @@ func getVersion(repoName string) (string, error) {
 	resp, err := http.Get("https://api.github.com/repos/" + repoName + "/tags")
 	if err != nil {
 		return "", fmt.Errorf("error getting response  %w", err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		if resp.StatusCode == http.StatusNotFound {
+			return "", internal.UNKNOWN_PACKAGE
+		}
+		return "", errors.New("github did not respond with 200")
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
