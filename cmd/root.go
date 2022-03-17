@@ -22,7 +22,7 @@ If you want to add a missing module, you can do so by creating a PR on the goget
 goget pterm
 goget testza
 goget pterm testza`,
-	Version: "v1.2.0", // <---VERSION---> Updating this version, will also create a new GitHub release.
+	Version: "v1.2.1", // <---VERSION---> Updating this version, will also create a new GitHub release.
 	Args:    cobra.ArbitraryArgs,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		modules.FetchNewModules()
