@@ -6,7 +6,6 @@ import (
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/MarvinJWendt/goget/internal"
 	"github.com/pterm/pterm"
-	"strconv"
 	"strings"
 )
 
@@ -25,14 +24,8 @@ func Run(remote string, arg string) error {
 		if err != nil {
 			return err
 		}
-		if version[0:1] == "v" {
-			i, err := strconv.Atoi(version[1:2])
-			if err == nil {
-				if i > 1 {
-					pkgPath += "/" + version
-					pterm.Debug.Println("Version tag higher than one")
-				}
-			}
+		if version != "" {
+			pkgPath += "/" + version
 		}
 		pterm.Debug.Println(pkgPath)
 		err = internal.InstallModule(pkgPath)

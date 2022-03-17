@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 )
 
 type Resp struct {
@@ -58,5 +59,18 @@ func getVersion(repoName string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("error unmarshalling response  %w", err)
 	}
-	return tags[0].Name, err
+	for _, tag := range tags {
+		if tag.Name[0:1] == "v" {
+			i, err := strconv.Atoi(tag.Name[1:2])
+			if err != nil {
+				continue
+			}
+			if i > 1 {
+				return tag.Name[0:2], err
+			}
+		} else {
+			continue
+		}
+	}
+	return "", nil
 }
