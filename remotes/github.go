@@ -35,6 +35,9 @@ func getRemote(arg string) (*[]Repo, error) {
 		return nil, fmt.Errorf("error getting response  %w", err)
 	}
 	if resp.StatusCode != http.StatusOK {
+		if resp.StatusCode == http.StatusForbidden {
+			return nil, internal.RATE_LIMIT
+		}
 		return nil, errors.New("github did not respond with 200")
 	}
 	defer resp.Body.Close()
@@ -59,6 +62,9 @@ func getVersion(repoName string) (string, error) {
 		return "", fmt.Errorf("error getting response  %w", err)
 	}
 	if resp.StatusCode != http.StatusOK {
+		if resp.StatusCode == http.StatusForbidden {
+			return "", internal.RATE_LIMIT
+		}
 		if resp.StatusCode == http.StatusNotFound {
 			return "", internal.UNKNOWN_PACKAGE
 		}

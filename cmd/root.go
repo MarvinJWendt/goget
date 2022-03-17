@@ -53,6 +53,8 @@ goget pterm testza`,
 					if err != nil {
 						if errors.Is(err, internal.UNKNOWN_PACKAGE) {
 							pterm.Warning.Printfln("Unable to find package \"%s\" on %s", arg, remote)
+						} else if errors.Is(err, internal.RATE_LIMIT) {
+							pterm.Error.Printfln("Rate limit exceeded maybe take a break or search %s directly", remote)
 						} else {
 							return err
 						}
