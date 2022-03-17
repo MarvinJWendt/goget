@@ -39,9 +39,6 @@ changelog:
   filters:
     exclude:
       - '^docs'
-      - '^test'
-      - '^ci'
-      - '^refactor'
       - Merge pull request
       - Merge branch
       - go mod tidy
