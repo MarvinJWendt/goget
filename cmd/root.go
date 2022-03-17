@@ -4,6 +4,7 @@ import (
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/MarvinJWendt/goget/internal"
 	"github.com/MarvinJWendt/goget/modules"
+	"github.com/MarvinJWendt/goget/remotes"
 	"os"
 	"os/signal"
 
@@ -11,6 +12,8 @@ import (
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
 )
+
+var remote string
 
 var rootCmd = &cobra.Command{
 	Use:   "goget [modules]",
@@ -44,13 +47,20 @@ goget pterm testza`,
 			}
 		} else {
 			for _, arg := range args {
-				pkg := internal.GetModuleByName(arg)
+				if remote != "none" {
+					err := remotes.Run(remote, arg)
+					if err != nil {
+						return err
+					}
+				} else {
+					pkg := internal.GetModuleByName(arg)
 
-				pterm.Debug.Printfln("Module: %#v", pkg)
+					pterm.Debug.Printfln("Module: %#v", pkg)
 
-				err := internal.InstallModule(pkg.Path)
-				if err != nil {
-					return err
+					err := internal.InstallModule(pkg.Path)
+					if err != nil {
+						return err
+					}
 				}
 			}
 		}
@@ -84,6 +94,7 @@ func init() {
 	// Fill the empty strings with the shorthand variant (if you like to have one).
 	rootCmd.PersistentFlags().BoolVarP(&pterm.PrintDebugMessages, "debug", "d", false, "enable debug messages")
 	rootCmd.PersistentFlags().BoolVarP(&pterm.RawOutput, "raw", "", false, "print unstyled raw output (set it if output is written to a file)")
+	rootCmd.PersistentFlags().StringVarP(&remote, "remote", "r", "none", "Look for module on git")
 
 	// Use https://github.com/pterm/pcli to style the output of cobra.
 	pcli.SetRepo("MarvinJWendt/goget")
