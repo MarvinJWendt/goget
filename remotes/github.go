@@ -20,6 +20,11 @@ type Repo struct {
 	Description string `json:"description,omitempty"`
 }
 
+type Tag struct {
+	Name   string `json:"name,omitempty"`
+	NodeId string `json:"node_id,omitempty"`
+}
+
 func getRemote(arg string) (*[]Repo, error) {
 	resp, err := http.Get("https://api.github.com/search/repositories?q=" + arg + "+language:go")
 	if err != nil {
@@ -36,4 +41,22 @@ func getRemote(arg string) (*[]Repo, error) {
 		return nil, fmt.Errorf("error unmarshalling response  %w", err)
 	}
 	return &respDecoded.Items, err
+}
+
+func getVersion(repoName string) (string, error) {
+	resp, err := http.Get("https://api.github.com/repos/" + repoName + "/tags")
+	if err != nil {
+		return "", fmt.Errorf("error getting response  %w", err)
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return "", fmt.Errorf("error reading response  %w", err)
+	}
+	var tags []Tag
+	err = json.Unmarshal(body, &tags)
+	if err != nil {
+		return "", fmt.Errorf("error unmarshalling response  %w", err)
+	}
+	return tags[0].Name, err
 }
