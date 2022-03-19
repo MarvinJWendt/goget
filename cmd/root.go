@@ -1,9 +1,11 @@
 package cmd
 
 import (
+	"errors"
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/MarvinJWendt/goget/internal"
 	"github.com/MarvinJWendt/goget/modules"
+	"github.com/MarvinJWendt/goget/remotes"
 	"os"
 	"os/signal"
 
@@ -11,6 +13,8 @@ import (
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
 )
+
+var remote string
 
 var rootCmd = &cobra.Command{
 	Use:   "goget [modules]",
@@ -35,7 +39,7 @@ goget pterm testza`,
 			}
 			pterm.Debug.Println("You selected:", pkgSelection)
 
-			pkg := internal.GetModuleByName(pkgSelection)
+			pkg, _ := internal.GetModuleByName(pkgSelection)
 			pterm.Debug.Printfln("Module: %#v", pkg)
 
 			err = internal.InstallModule(pkg.Path)
@@ -44,13 +48,33 @@ goget pterm testza`,
 			}
 		} else {
 			for _, arg := range args {
-				pkg := internal.GetModuleByName(arg)
+				if remote != "none" {
+					err := remotes.Run(remote, arg)
+					if err != nil {
+						if errors.Is(err, internal.UNKNOWN_PACKAGE) {
+							pterm.Warning.Printfln("Unable to find package \"%s\" on %s", arg, remote)
+						} else if errors.Is(err, internal.RATE_LIMIT) {
+							pterm.Error.Printfln("Rate limit exceeded maybe take a break or search %s directly", remote)
+						} else {
+							return err
+						}
+					}
+				} else {
+					pkg, err := internal.GetModuleByName(arg)
+					if err != nil {
+						if errors.Is(err, internal.UNKNOWN_PACKAGE) {
+							pterm.Warning.Printfln("Unable to find package \"%s\", try -r", arg)
+						} else {
+							return err
+						}
+					} else {
+						pterm.Debug.Printfln("Module: %#v", pkg)
 
-				pterm.Debug.Printfln("Module: %#v", pkg)
-
-				err := internal.InstallModule(pkg.Path)
-				if err != nil {
-					return err
+						err = internal.InstallModule(pkg.Path)
+						if err != nil {
+							return err
+						}
+					}
 				}
 			}
 		}
@@ -84,6 +108,7 @@ func init() {
 	// Fill the empty strings with the shorthand variant (if you like to have one).
 	rootCmd.PersistentFlags().BoolVarP(&pterm.PrintDebugMessages, "debug", "d", false, "enable debug messages")
 	rootCmd.PersistentFlags().BoolVarP(&pterm.RawOutput, "raw", "", false, "print unstyled raw output (set it if output is written to a file)")
+	rootCmd.PersistentFlags().StringVarP(&remote, "remote", "r", "none", "Look for module on git")
 
 	// Use https://github.com/pterm/pcli to style the output of cobra.
 	pcli.SetRepo("MarvinJWendt/goget")
