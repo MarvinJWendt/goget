@@ -3,7 +3,7 @@ module github.com/MarvinJWendt/goget
 go 1.18
 
 require (
-	github.com/AlecAivazis/survey/v2 v2.3.2
+	github.com/AlecAivazis/survey/v2 v2.3.3
 	github.com/MarvinJWendt/testza v0.2.15
 	github.com/pterm/pcli v0.4.6
 	github.com/pterm/pterm v0.12.39
