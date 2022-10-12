@@ -7,14 +7,14 @@ require (
 	github.com/MarvinJWendt/testza v0.2.15
 	github.com/pterm/pcli v0.4.6
 	github.com/pterm/pterm v0.12.39
-	github.com/spf13/cobra v1.4.0
+	github.com/spf13/cobra v1.6.0
 )
 
 require (
 	github.com/atomicgo/cursor v0.0.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/gookit/color v1.5.0 // indirect
-	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/inconshreveable/mousetrap v1.0.1 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/klauspost/cpuid/v2 v2.0.11 // indirect
 	github.com/mattn/go-colorable v0.1.2 // indirect
